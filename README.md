@@ -13,7 +13,7 @@ pip install -r requirements.txt
 python run.py
 ```
 ## Detalhes
-### Formate o codigo usando Black (ja esta nas dependencias do ambiente virtual)
+  Formate o codigo usando Black (ja esta nas dependencias do ambiente virtual)
 
 ## Dependencias
 ### [Typer](https://typer.tiangolo.com/)
