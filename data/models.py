@@ -29,5 +29,5 @@ class Aluno(SQLModel, table=True):
     idade: int
     cpf: str
     faixa: TypeFaixa = Field(sa_column=Column(Enum(TypeFaixa)), nullable=False)
-    turma_id: Optional[int] = Field(foreign_key="turma.id", default=None)
-    turma: Optional[Turma] = Relationship(back_populates="alunos")
+    turma_id: int = Field(foreign_key="turma.id", nullable=False)
+    turma: Turma = Relationship(back_populates="alunos")

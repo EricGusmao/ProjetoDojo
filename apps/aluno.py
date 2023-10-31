@@ -1,36 +1,43 @@
 import typer
+from rich import print
 from sqlmodel import Session
 from data.database import engine
-from data.models import Aluno
+from data.models import Aluno, TypeFaixa
+from utils.input import CpfPrompt, IdadePrompt, FaixaPrompt, TurmaPrompt
+from rich.prompt import Prompt
+from utils.input import get_aluno_by_cpf
 
 app = typer.Typer()
 
 
 @app.command()
 def cadastrar():
-    # TODO: Realiza o cadastro
-    # PRECISA DE VALIDACAO!!!!!!
-    pass
+    nome = Prompt.ask("Nome completo:")
+    idade = IdadePrompt.ask("Idade")
+    cpf = CpfPrompt.ask("CPF")
+    faixa = FaixaPrompt.ask("Faixa", show_choices=False)
+    turma_id = TurmaPrompt.ask("Turma", show_choices=False)
+
+    novo_aluno = Aluno(
+        nome=nome, turma_id=turma_id, cpf=cpf, faixa=TypeFaixa(faixa), idade=idade
+    )
+    with Session(engine) as session:
+        session.add(novo_aluno)
+        session.commit()
 
 
 @app.command()
-def buscar():
-    # TODO: Busca aluno por cpf (argumento) e mostra os detalhes
-    pass
+def buscar(cpf: str):
+    aluno = get_aluno_by_cpf(cpf)
+    if not aluno:
+        return print("[bold red]CPF não encontrado! :( [/bold red]")
 
 
 @app.command()
-def sem_turma():
-    # TODO: Mostra todos os alunos que estao sem turma
-    # (o output e parecido com o comando turma mostrar_alunos)
-    pass
-
-
-@app.command()
-def editar():
-    # TODO: Edita dados do aluno (cpf como argumento)
-    # PRECISA DE VALIDACAO!!!!!!
-    pass
+def editar(cpf: str):
+    aluno = get_aluno_by_cpf(cpf)
+    if not aluno:
+        return print("[bold red]CPF não encontrado! :( [/bold red]")
 
 
 @app.command()
