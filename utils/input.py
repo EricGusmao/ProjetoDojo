@@ -3,6 +3,8 @@ from utils.queries import get_aluno_by_cpf
 from validate_docbr import CPF
 from rich import print
 from typing import List
+from sqlmodel import Session
+from data.database import engine
 
 TEXTO_TURMA = """
 [bold white]1- Manhã[/bold white]\n
@@ -29,8 +31,9 @@ class CpfPrompt(PromptBase[str]):
         value = value.strip()
         if not CPF().validate(value):
             raise InvalidResponse(self.validate_error_message)
-        if get_aluno_by_cpf(value) is None:
-            raise InvalidResponse("[prompt.invalid]Esse CPF já está cadastrado!!!")
+        with Session(engine) as session:
+            if get_aluno_by_cpf(value, session):
+                raise InvalidResponse("[prompt.invalid]Esse CPF já está cadastrado!!!")
         return value
 
 

@@ -1,5 +1,6 @@
 import typer
 from rich import print
+from rich.table import Table
 from sqlmodel import Session
 from data.database import engine
 from data.models import Aluno, TypeFaixa
@@ -12,7 +13,7 @@ app = typer.Typer()
 
 @app.command()
 def cadastrar():
-    nome = Prompt.ask("Nome completo:")
+    nome = Prompt.ask("Nome completo")
     idade = IdadePrompt.ask("Idade")
     cpf = CpfPrompt.ask("CPF")
     faixa = FaixaPrompt.ask("Faixa", show_choices=False)
@@ -28,19 +29,26 @@ def cadastrar():
 
 @app.command()
 def buscar(cpf: str):
-    aluno = get_aluno_by_cpf(cpf)
-    if not aluno:
-        return print("[bold red]CPF não encontrado! :( [/bold red]")
+    with Session(engine) as session:
+        aluno = get_aluno_by_cpf(cpf, session)
+        if not aluno:
+            return print("[bold red]CPF não encontrado! :( [/bold red]")
+        tabela = Table(show_header=False)
+        tabela.add_column("", style="magenta")
+        tabela.add_column("", style="cyan")
+        tabela.add_row("Nome", f"{aluno.nome}")
+        tabela.add_row("Idade", f"{aluno.idade}")
+        tabela.add_row("CPF", f"{aluno.cpf}")
+        tabela.add_row("Faixa", f"{TypeFaixa(aluno.faixa).name}")
+        tabela.add_row("Turma", f"{aluno.turma.nome_turma}")
+    print(tabela)
 
 
 @app.command()
 def editar(cpf: str):
-    aluno = get_aluno_by_cpf(cpf)
-    if not aluno:
-        return print("[bold red]CPF não encontrado! :( [/bold red]")
+    pass
 
 
 @app.command()
-def excluir():
-    # TODO: Exclui aluno, pede confirmacao antes de excluir
+def excluir(cpf: str):
     pass
