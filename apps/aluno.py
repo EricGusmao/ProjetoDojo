@@ -4,7 +4,7 @@ from rich.table import Table
 from sqlmodel import Session
 from data.database import engine
 from data.models import Aluno, TypeFaixa
-from utils.input import CpfPrompt, IdadePrompt, FaixaPrompt, TurmaPrompt
+from utils.input import CpfPrompt, EditarCpfPrompt, IdadePrompt, FaixaPrompt, TurmaPrompt
 from rich.prompt import Prompt
 from utils.input import get_aluno_by_cpf
 
@@ -45,8 +45,19 @@ def buscar(cpf: str):
 
 
 @app.command()
-def editar(cpf: str):
-    pass
+def editar():
+    cpf = EditarCpfPrompt.ask("CPF")
+    with Session(engine) as session:
+        aluno = get_aluno_by_cpf(cpf, session)
+        if not aluno:
+            return print("[bold red]CPF não encontrado! :( [/bold red]")
+        if aluno:
+            aluno.nome = Prompt.ask("Novo nome")
+            aluno.faixa = FaixaPrompt.ask("Nova faixa", show_choices=False)
+            session.commit()
+            typer.echo(f'Dados do Aluno (CPF: {aluno.cpf}) editados com sucesso.')
+        else:
+            typer.echo(f'Aluno com CPF {cpf} não encontrado.')
 
 
 @app.command()
