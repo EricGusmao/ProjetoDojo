@@ -3,7 +3,6 @@ from typing import List, Optional
 from sqlalchemy import UniqueConstraint
 from sqlmodel import Field, Relationship, SQLModel, Enum, Column
 
-
 class TypeFaixa(IntEnum):
     branca = 1
     amarela = 2
