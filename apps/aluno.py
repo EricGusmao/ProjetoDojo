@@ -49,13 +49,25 @@ def buscar(cpf: str):
         tabela.add_row("Turma", f"{aluno.turma.nome_turma}") # TODO: Verificar se turma é None
     print(tabela)
 
-
 @app.command()
-def editar(cpf: str):
+def editar():
     with Session(engine) as session:
-        aluno = get_aluno_by_cpf(cpf, session)
-        if not aluno:
-            return print("[bold red]CPF não encontrado! :( [/bold red]")
+        alunos = session.query(Aluno).all()
+
+        if not alunos:
+            return print("[bold red]Não há alunos para editar.[/bold red]")
+
+        print("[bold]Escolha um aluno para editar:[/bold]")
+        for idx, aluno in enumerate(alunos, start=1):
+            print(f"{idx}. Nome: {aluno.nome}, CPF: {aluno.cpf}")
+
+        escolha_aluno = Prompt.ask("Digite o número correspondente ao aluno que deseja editar: ")
+
+        try:
+            index_aluno = int(escolha_aluno) - 1
+            aluno = alunos[index_aluno]
+        except (ValueError, IndexError):
+            return print("[bold red]Escolha inválida![/bold red]")
 
         print("[bold]Campos disponíveis para edição:[/bold]")
         print("1. Nome")
@@ -76,9 +88,12 @@ def editar(cpf: str):
                 )
             )
         elif campo_a_editar == "4":
-            aluno.turma_id = TurmaPrompt.ask(
-                "Turma", default=aluno.turma.nome_turma, show_choices=False
-            )
+            if aluno.turma is not None:
+                aluno.turma_id = TurmaPrompt.ask(
+                    "Turma", default=aluno.turma.nome_turma, show_choices=False
+                )
+            else:
+                print("[bold red]Este aluno não está associado a uma turma atualmente.[/bold red]")
         else:
             return print("[bold red]Opção inválida! [/bold red]")
 
@@ -89,6 +104,7 @@ def editar(cpf: str):
             print("[bold green]Aluno editado com sucesso! :)[/bold green]")
         else:
             print("[bold yellow]Edição cancelada.[/bold yellow]")
+
 
 
 @app.command()
