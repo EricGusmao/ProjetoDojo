@@ -46,8 +46,11 @@ def buscar(cpf: str):
         tabela.add_row("Idade", f"{aluno.idade}")
         tabela.add_row("CPF", f"{aluno.cpf}")
         tabela.add_row("Faixa", f"{TypeFaixa(aluno.faixa).name}")
-        tabela.add_row("Turma", f"{aluno.turma.nome_turma}") # TODO: Verificar se turma é None
+        tabela.add_row(
+            "Turma", f"{aluno.turma.nome_turma}"
+        )  # TODO: Verificar se turma é None
     print(tabela)
+
 
 @app.command()
 def editar():
@@ -61,7 +64,9 @@ def editar():
         for idx, aluno in enumerate(alunos, start=1):
             print(f"{idx}. Nome: {aluno.nome}, CPF: {aluno.cpf}")
 
-        escolha_aluno = Prompt.ask("Digite o número correspondente ao aluno que deseja editar: ")
+        escolha_aluno = Prompt.ask(
+            "Digite o número correspondente ao aluno que deseja editar: "
+        )
 
         try:
             index_aluno = int(escolha_aluno) - 1
@@ -93,7 +98,9 @@ def editar():
                     "Turma", default=aluno.turma.nome_turma, show_choices=False
                 )
             else:
-                print("[bold red]Este aluno não está associado a uma turma atualmente.[/bold red]")
+                print(
+                    "[bold red]Este aluno não está associado a uma turma atualmente.[/bold red]"
+                )
         else:
             return print("[bold red]Opção inválida! [/bold red]")
 
@@ -104,7 +111,6 @@ def editar():
             print("[bold green]Aluno editado com sucesso! :)[/bold green]")
         else:
             print("[bold yellow]Edição cancelada.[/bold yellow]")
-
 
 
 @app.command()
