@@ -17,7 +17,6 @@ class TypeFaixa(IntEnum):
 class Turma(SQLModel, table=True):
     id: Optional[int] = Field(primary_key=True, default=None)
     nome_turma: str
-    turno: str  # [matutino, vespertino ou noturno] TODO: validar
     alunos: List["Aluno"] = Relationship(back_populates="turma")
 
 

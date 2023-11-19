@@ -9,8 +9,8 @@ def criar_turmas():
     with Session(engine) as session:
         turmas = session.exec(select(Turma)).all()
         if not turmas:
-            turma1 = Turma(nome_turma="Manhã", turno="Matutino")
-            turma2 = Turma(nome_turma="Noite", turno="Noturno")
+            turma1 = Turma(nome_turma="Matutino")
+            turma2 = Turma(nome_turma="Noturno")
             session.add(turma1)
             session.add(turma2)
             session.commit()
