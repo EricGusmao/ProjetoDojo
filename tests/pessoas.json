@@ -1,0 +1,352 @@
+[
+    {
+        "nome": "Geraldo Victor Moreira",
+        "cpf": "48569971222",
+        "idade": 43,
+        "turma_id": 2,
+        "faixa": 6
+    },
+    {
+        "nome": "Gustavo Julio de Paula",
+        "cpf": "79983331705",
+        "idade": 80,
+        "turma_id": 1,
+        "faixa": 8
+    },
+    {
+        "nome": "Hugo Luiz da Mota",
+        "cpf": "99842163652",
+        "idade": 20,
+        "turma_id": 2,
+        "faixa": 5
+    },
+    {
+        "nome": "Márcia Simone Corte Real",
+        "cpf": "95403207805",
+        "idade": 18,
+        "turma_id": 1,
+        "faixa": 4
+    },
+    {
+        "nome": "Rita Beatriz Giovanna Peixoto",
+        "cpf": "67045105592",
+        "idade": 51,
+        "turma_id": 2,
+        "faixa": 8
+    },
+    {
+        "nome": "Anderson Martin Rodrigo da Luz",
+        "cpf": "39718373870",
+        "idade": 72,
+        "turma_id": 2,
+        "faixa": 4
+    },
+    {
+        "nome": "Ester Laís Oliveira",
+        "cpf": "01627564454",
+        "idade": 24,
+        "turma_id": 1,
+        "faixa": 5
+    },
+    {
+        "nome": "Liz Stefany Moura",
+        "cpf": "75393977999",
+        "idade": 66,
+        "turma_id": 1,
+        "faixa": 7
+    },
+    {
+        "nome": "Pietra Laís Sabrina Gomes",
+        "cpf": "29501612007",
+        "idade": 21,
+        "turma_id": 1,
+        "faixa": 3
+    },
+    {
+        "nome": "Fernanda Elaine Vieira",
+        "cpf": "02234739446",
+        "idade": 26,
+        "turma_id": 2,
+        "faixa": 4
+    },
+    {
+        "nome": "Giovanni Cauã Silveira",
+        "cpf": "49311037907",
+        "idade": 32,
+        "turma_id": 2,
+        "faixa": 8
+    },
+    {
+        "nome": "Vitória Joana Kamilly Nunes",
+        "cpf": "89048406196",
+        "idade": 37,
+        "turma_id": 2,
+        "faixa": 1
+    },
+    {
+        "nome": "Benício Cauã Rodrigues",
+        "cpf": "75745659963",
+        "idade": 56,
+        "turma_id": 1,
+        "faixa": 4
+    },
+    {
+        "nome": "Manoel Severino Márcio Sales",
+        "cpf": "46836379522",
+        "idade": 67,
+        "turma_id": 2,
+        "faixa": 5
+    },
+    {
+        "nome": "Enrico Gustavo Viana",
+        "cpf": "24681970387",
+        "idade": 52,
+        "turma_id": 2,
+        "faixa": 2
+    },
+    {
+        "nome": "Sueli Isabela Ramos",
+        "cpf": "67303303685",
+        "idade": 65,
+        "turma_id": 2,
+        "faixa": 4
+    },
+    {
+        "nome": "Eduarda Fernanda Drumond",
+        "cpf": "78107132645",
+        "idade": 23,
+        "turma_id": 1,
+        "faixa": 5
+    },
+    {
+        "nome": "Luzia Bárbara Cardoso",
+        "cpf": "89419693600",
+        "idade": 28,
+        "turma_id": 1,
+        "faixa": 7
+    },
+    {
+        "nome": "Daniel Kauê Santos",
+        "cpf": "81125587792",
+        "idade": 31,
+        "turma_id": 2,
+        "faixa": 4
+    },
+    {
+        "nome": "Pedro Henrique Caleb Dias",
+        "cpf": "21092610642",
+        "idade": 67,
+        "turma_id": 2,
+        "faixa": 3
+    },
+    {
+        "nome": "Andrea Clarice Lima",
+        "cpf": "46752308578",
+        "idade": 39,
+        "turma_id": 1,
+        "faixa": 4
+    },
+    {
+        "nome": "Lorena Emilly Alana da Mata",
+        "cpf": "38568174337",
+        "idade": 59,
+        "turma_id": 2,
+        "faixa": 4
+    },
+    {
+        "nome": "Kaique Cauê da Cruz",
+        "cpf": "04198764727",
+        "idade": 18,
+        "turma_id": 2,
+        "faixa": 3
+    },
+    {
+        "nome": "Isaac Oliver Assis",
+        "cpf": "41802181270",
+        "idade": 67,
+        "turma_id": 1,
+        "faixa": 4
+    },
+    {
+        "nome": "Noah Diego Alves",
+        "cpf": "25094578375",
+        "idade": 68,
+        "turma_id": 1,
+        "faixa": 7
+    },
+    {
+        "nome": "Erick Fernando Almeida",
+        "cpf": "44257232447",
+        "idade": 64,
+        "turma_id": 1,
+        "faixa": 2
+    },
+    {
+        "nome": "Eloá Alana da Paz",
+        "cpf": "46293144902",
+        "idade": 42,
+        "turma_id": 2,
+        "faixa": 4
+    },
+    {
+        "nome": "Jéssica Adriana Barros",
+        "cpf": "65084548112",
+        "idade": 51,
+        "turma_id": 2,
+        "faixa": 2
+    },
+    {
+        "nome": "Nair Maria Benedita da Rosa",
+        "cpf": "43095743866",
+        "idade": 34,
+        "turma_id": 2,
+        "faixa": 1
+    },
+    {
+        "nome": "Aline Luna Sophia Duarte",
+        "cpf": "03733500903",
+        "idade": 23,
+        "turma_id": 1,
+        "faixa": 6
+    },
+    {
+        "nome": "Joana Ana da Rosa",
+        "cpf": "44856211110",
+        "idade": 33,
+        "turma_id": 1,
+        "faixa": 5
+    },
+    {
+        "nome": "Nina Mariah Monteiro",
+        "cpf": "42161419781",
+        "idade": 47,
+        "turma_id": 1,
+        "faixa": 2
+    },
+    {
+        "nome": "Enzo Pietro Anthony Drumond",
+        "cpf": "63054892972",
+        "idade": 34,
+        "turma_id": 1,
+        "faixa": 4
+    },
+    {
+        "nome": "Raul Thiago Edson da Luz",
+        "cpf": "47720756584",
+        "idade": 45,
+        "turma_id": 1,
+        "faixa": 1
+    },
+    {
+        "nome": "Paulo Arthur Bryan da Conceição",
+        "cpf": "55794586222",
+        "idade": 21,
+        "turma_id": 2,
+        "faixa": 5
+    },
+    {
+        "nome": "Débora Alícia Fogaça",
+        "cpf": "15797192101",
+        "idade": 69,
+        "turma_id": 2,
+        "faixa": 2
+    },
+    {
+        "nome": "Sebastiana Fátima Costa",
+        "cpf": "78282812420",
+        "idade": 43,
+        "turma_id": 2,
+        "faixa": 2
+    },
+    {
+        "nome": "Laís Benedita Carvalho",
+        "cpf": "61997018012",
+        "idade": 62,
+        "turma_id": 1,
+        "faixa": 5
+    },
+    {
+        "nome": "Gabriel Paulo Sérgio dos Santos",
+        "cpf": "01331332060",
+        "idade": 59,
+        "turma_id": 1,
+        "faixa": 8
+    },
+    {
+        "nome": "Bruna Silvana Viana",
+        "cpf": "80021636214",
+        "idade": 33,
+        "turma_id": 1,
+        "faixa": 2
+    },
+    {
+        "nome": "Kevin Manoel Kaique das Neves",
+        "cpf": "19524764105",
+        "idade": 50,
+        "turma_id": 1,
+        "faixa": 3
+    },
+    {
+        "nome": "Débora Fátima Marlene Nogueira",
+        "cpf": "53108010573",
+        "idade": 73,
+        "turma_id": 2,
+        "faixa": 7
+    },
+    {
+        "nome": "Calebe Henry Aragão",
+        "cpf": "67521684079",
+        "idade": 65,
+        "turma_id": 1,
+        "faixa": 1
+    },
+    {
+        "nome": "Raquel Evelyn Lorena Figueiredo",
+        "cpf": "13471246592",
+        "idade": 43,
+        "turma_id": 1,
+        "faixa": 8
+    },
+    {
+        "nome": "Bianca Analu Raquel Oliveira",
+        "cpf": "50636256499",
+        "idade": 69,
+        "turma_id": 1,
+        "faixa": 1
+    },
+    {
+        "nome": "André Nelson Sales",
+        "cpf": "45434648269",
+        "idade": 28,
+        "turma_id": 2,
+        "faixa": 5
+    },
+    {
+        "nome": "Elaine Regina Farias",
+        "cpf": "09930761900",
+        "idade": 64,
+        "turma_id": 1,
+        "faixa": 1
+    },
+    {
+        "nome": "Flávia Tânia Marina Castro",
+        "cpf": "37904383675",
+        "idade": 42,
+        "turma_id": 2,
+        "faixa": 6
+    },
+    {
+        "nome": "Rafaela Teresinha Stefany Jesus",
+        "cpf": "28608390540",
+        "idade": 49,
+        "turma_id": 2,
+        "faixa": 2
+    },
+    {
+        "nome": "Isadora Lorena Caroline Caldeira",
+        "cpf": "60850790280",
+        "idade": 73,
+        "turma_id": 1,
+        "faixa": 8
+    }
+]
