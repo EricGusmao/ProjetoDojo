@@ -6,7 +6,6 @@ from data.database import engine
 from data.models import Aluno, TypeFaixa
 from utils.input import (
     CpfPrompt,
-    EditarCpfPrompt,
     IdadePrompt,
     FaixaPrompt,
     TurmaPrompt,
