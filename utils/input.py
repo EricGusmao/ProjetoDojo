@@ -24,6 +24,10 @@ TEXTO_FAIXA: str = """
 
 
 class CpfPrompt(PromptBase[str]):
+    """
+    Pergunta ao usuário o CPF, valida e faz a checagem se há outro igual no banco de dados
+    """
+
     response_type = str
     validate_error_message = "[prompt.invalid]Por favor, insira um CPF válido"
 
@@ -38,6 +42,10 @@ class CpfPrompt(PromptBase[str]):
 
 
 class IdadePrompt(PromptBase[int]):
+    """
+    Pergunta ao usuário a idade e faz validação
+    """
+
     response_type = int
     validate_error_message = "[prompt.invalid]Valor Inválido!!"
 
@@ -54,6 +62,10 @@ class IdadePrompt(PromptBase[int]):
 
 
 class FaixaPrompt(PromptBase[int]):
+    """
+    Pergunta ao usuário a faixa e faz validação
+    """
+
     response_type = int
     illegal_choice_message = "[prompt.invalid.choice]Opção Não Disponível!!"
     validate_error_message = "[prompt.invalid]Insira um valor válido!!"
@@ -64,6 +76,10 @@ class FaixaPrompt(PromptBase[int]):
 
 
 class TurmaPrompt(PromptBase[int]):
+    """
+    Pergunta ao usuário a turma e faz validação
+    """
+
     response_type = int
     illegal_choice_message = "[prompt.invalid.choice]Opção Não Disponível!!"
     validate_error_message = "[prompt.invalid]Insira um valor válido!!"
