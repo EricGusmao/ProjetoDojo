@@ -86,12 +86,14 @@ def editar(cpf: str):
                 return print("[bold red]Opção inválida! [/bold red]")
 
         confirmacao = Confirm.ask("Deseja aplicar as alterações?")
-        if confirmacao:
-            session.add(aluno)
-            session.commit()
-            print("[bold green]Aluno editado com sucesso! :)[/bold green]")
-        else:
-            print("[bold yellow]Edição cancelada.[/bold yellow]")
+
+        if not confirmacao:
+            return print("[bold yellow]Edição cancelada.[/bold yellow]")
+
+        session.add(aluno)
+        session.commit()
+
+        print("[bold green]Aluno editado com sucesso! :)[/bold green]")
 
 
 @app.command()
