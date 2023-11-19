@@ -36,17 +36,6 @@ class CpfPrompt(PromptBase[str]):
                 raise InvalidResponse("[prompt.invalid]Esse CPF já está cadastrado!!!")
         return value
 
-class EditarCpfPrompt(PromptBase[str]):
-    response_type = str
-    validate_error_message = "[prompt.invalid]Por favor, insira um CPF válido"
-
-    def process_response(self, value: str) -> str:
-        value = value.strip()
-        if not CPF().validate(value):
-            raise InvalidResponse(self.validate_error_message)
-        with Session(engine) as session:
-            if get_aluno_by_cpf(value, session):
-                return value
 
 class IdadePrompt(PromptBase[int]):
     response_type = int
