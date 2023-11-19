@@ -48,7 +48,7 @@ class IdadePrompt(PromptBase[int]):
         except ValueError:
             raise InvalidResponse(self.validate_error_message)
 
-        if 5 > return_value >= 100:
+        if 5 > return_value or return_value >= 100:
             raise InvalidResponse("[prompt.invalid]Idade Inválida!")
         return return_value
 
