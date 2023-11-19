@@ -3,6 +3,7 @@ from typing import List, Optional
 from sqlalchemy import UniqueConstraint
 from sqlmodel import Field, Relationship, SQLModel, Enum, Column
 
+
 class TypeFaixa(IntEnum):
     branca = 1
     amarela = 2
@@ -26,6 +27,6 @@ class Aluno(SQLModel, table=True):
     nome: str
     idade: int
     cpf: str
-    faixa: TypeFaixa = Field(sa_column=Column(Enum(TypeFaixa)), nullable=False)
+    faixa: TypeFaixa | int = Field(sa_column=Column(Enum(TypeFaixa)), nullable=False)
     turma_id: int = Field(foreign_key="turma.id", nullable=False)
     turma: Turma = Relationship(back_populates="alunos")
