@@ -15,6 +15,8 @@ from utils.input import get_aluno_by_cpf
 
 app = typer.Typer()
 
+CPF_NAO_ENCONTRADO: str = "[bold red]CPF não encontrado! :( [/bold red]"
+
 
 @app.command()
 def cadastrar():
@@ -37,7 +39,7 @@ def buscar(cpf: str):
     with Session(engine) as session:
         aluno = get_aluno_by_cpf(cpf, session)
         if not aluno:
-            return print("[bold red]CPF não encontrado! :( [/bold red]")
+            return print(CPF_NAO_ENCONTRADO)
         tabela = Table(show_header=False)
         tabela.add_column("", style="magenta")
         tabela.add_column("", style="cyan")
@@ -54,7 +56,7 @@ def editar(cpf: str):
     with Session(engine) as session:
         aluno = get_aluno_by_cpf(cpf, session)
         if not aluno:
-            return print("[bold red]CPF não encontrado! :( [/bold red]")
+            return print(CPF_NAO_ENCONTRADO)
 
         print("[bold]Campos disponíveis para edição:[/bold]")
         print("1. Nome")
