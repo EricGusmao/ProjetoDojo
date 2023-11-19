@@ -68,9 +68,9 @@ def editar(cpf: str):
             aluno.nome = Prompt.ask("Nome completo", default=aluno.nome)
         elif campo_a_editar == "2":
             aluno.idade = IdadePrompt.ask("Idade", default=aluno.idade)
-        elif campo_a_editar == "3":
-            aluno.faixa = TypeFaixa(
-                FaixaPrompt.ask(
+            case "3":
+                aluno.faixa = TypeFaixa(
+                    FaixaPrompt.ask(
                     "Faixa", default=TypeFaixa(aluno.faixa).name, show_choices=False
                 )
             )
