@@ -1,6 +1,7 @@
-import typer
+import typer, json
+from os.path import isfile
 from apps import turma, aluno
-from data.models import Turma
+from data.models import Turma, Aluno
 from data.database import create_db_and_tables, engine
 from sqlmodel import Session, select
 
@@ -35,7 +36,16 @@ def criar_turmas():
 app = typer.Typer()
 app.add_typer(turma.app, name="turma")
 app.add_typer(aluno.app, name="aluno")
-if __name__ == "__main__":
+
+
+@app.command()
+def set_initial_state():
+    if isfile("./database.db"):
+        return None
     create_db_and_tables()
     criar_turmas()
+    gerar_alunos()
+
+
+if __name__ == "__main__":
     app()
