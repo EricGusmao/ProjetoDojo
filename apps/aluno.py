@@ -95,36 +95,20 @@ def editar(cpf: str):
 
 
 @app.command()
-def excluir():
+def excluir(cpf: str):
     with Session(engine) as session:
-        alunos = session.query(Aluno).all()
-        if not alunos:
-            return print("[bold red]Não há alunos cadastrados! :( [/bold red]")
+        aluno = get_aluno_by_cpf(cpf, session)
+        if not aluno:
+            return print(CPF_NAO_ENCONTRADO)
 
-        print("[bold]Alunos disponíveis para exclusão:[/bold]")
-        for i, aluno in enumerate(alunos, start=1):
-            print(f"{i}. {aluno.nome} (CPF: {aluno.cpf})")
+        confirmacao = Confirm.ask(
+            f"Tem certeza que deseja excluir o aluno {aluno.nome}?"
+        )
+        if not confirmacao:
+            return print(
+                f"[bold red]Operação para deletar o aluno {aluno.nome} foi cancelada![/bold red]"
+            )
 
-        opcao = Prompt.ask("Informe o número do aluno que deseja excluir")
-
-        try:
-            opcao = int(opcao)
-            if 1 <= opcao <= len(alunos):
-                exclusao = alunos[opcao - 1]
-                confirmacao = Confirm.ask(
-                    f"Tem certeza que deseja excluir o aluno {exclusao.nome}?"
-                )
-                if confirmacao:
-                    session.delete(exclusao)
-                    session.commit()
-                    print(
-                        f"[bold yellow]Aluno {exclusao.nome} foi deletado![/bold yellow]"
-                    )
-                else:
-                    print(
-                        f"[bold red]Operação para deletar o aluno {exclusao.nome} foi cancelada![/bold red]"
-                    )
-            else:
-                print("[bold red]Opção inválida![/bold red]")
-        except ValueError:
-            print("[bold red]Informe um número válido![/bold red]")
+        session.delete(aluno)
+        session.commit()
+        print(f"[bold yellow]Aluno {aluno.nome} foi deletado![/bold yellow]")
