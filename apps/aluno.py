@@ -32,6 +32,7 @@ def cadastrar():
     with Session(engine) as session:
         session.add(novo_aluno)
         session.commit()
+        print("[bold green]Aluno cadastrado com sucesso ;)[/bold green]")
 
 
 @app.command()
