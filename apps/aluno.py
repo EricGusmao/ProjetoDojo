@@ -45,7 +45,7 @@ def buscar(cpf: str):
         tabela.add_row("Idade", f"{aluno.idade}")
         tabela.add_row("CPF", f"{aluno.cpf}")
         tabela.add_row("Faixa", f"{TypeFaixa(aluno.faixa).name}")
-        tabela.add_row("Turma", f"{aluno.turma.nome_turma}") # TODO: Verificar se turma é None
+        tabela.add_row("Turma", f"{aluno.turma.nome_turma}")
     print(tabela)
 
 
@@ -64,22 +64,23 @@ def editar(cpf: str):
 
         campo_a_editar = Prompt.ask("Informe qual campo que deseja editar: ")
 
-        if campo_a_editar == "1":
-            aluno.nome = Prompt.ask("Nome completo", default=aluno.nome)
-        elif campo_a_editar == "2":
-            aluno.idade = IdadePrompt.ask("Idade", default=aluno.idade)
+        match campo_a_editar:
+            case "1":
+                aluno.nome = Prompt.ask("Nome completo", default=aluno.nome)
+            case "2":
+                aluno.idade = IdadePrompt.ask("Idade", default=aluno.idade)
             case "3":
                 aluno.faixa = TypeFaixa(
                     FaixaPrompt.ask(
-                    "Faixa", default=TypeFaixa(aluno.faixa).name, show_choices=False
+                        "Faixa", default=TypeFaixa(aluno.faixa), show_choices=False
+                    )
                 )
-            )
-        elif campo_a_editar == "4":
-            aluno.turma_id = TurmaPrompt.ask(
-                "Turma", default=aluno.turma.nome_turma, show_choices=False
-            )
-        else:
-            return print("[bold red]Opção inválida! [/bold red]")
+            case "4":
+                aluno.turma_id = TurmaPrompt.ask(
+                    "Turma", default=aluno.turma_id, show_choices=False
+                )
+            case _:
+                return print("[bold red]Opção inválida! [/bold red]")
 
         confirmacao = Confirm.ask("Deseja aplicar as alterações?")
         if confirmacao:
@@ -108,7 +109,7 @@ def excluir():
             if 1 <= opcao <= len(alunos):
                 exclusao = alunos[opcao - 1]
                 confirmacao = Confirm.ask(
-                    f"Tem certeza que deseja deletar o aluno {exclusao.nome}?"
+                    f"Tem certeza que deseja excluir o aluno {exclusao.nome}?"
                 )
                 if confirmacao:
                     session.delete(exclusao)
